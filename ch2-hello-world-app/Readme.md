@@ -1,5 +1,5 @@
 # Django Hello World App
-Code for creating a Django "Hello World app". Read table the full tutorial at [Django for Beginners: Chapter 2](https://djangoforbeginners.com/book/chapter-two/).
+Code for creating a Django "Hello World app." Read table the full tutorial at [Django for Beginners: Chapter 2](https://djangoforbeginners.com/book/chapter-two/).
 
 ## Quick Setup
 1) Clone the repo to your computer
