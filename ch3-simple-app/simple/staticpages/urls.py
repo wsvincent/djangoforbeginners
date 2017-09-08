@@ -1,8 +1,8 @@
 from django.conf.urls import url
 
-from .views import home_page_view, about_page_view
+from .views import Home_page_view, About_page_view
 
 urlpatterns = [
-    url(r'^$', home_page_view),
-    url(r'^about/', about_page_view),
+    url(r'^$', Home_page_view.as_view()),
+    url(r'^about', About_page_view.as_view()),
 ]

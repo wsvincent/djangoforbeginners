@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-def home_page_view(request):
-    return render(request, 'staticpages/index.html')
+class Home_page_view(TemplateView):
+	  template_name = 'staticpages/index.html'
 
 
-def about_page_view(request):
-    return render(request, 'staticpages/about.html')
+class About_page_view(TemplateView):
+	  template_name = 'staticpages/about.html'
