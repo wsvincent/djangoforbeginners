@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Django blog</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">Django blog</a></h1>
+    </header>
+    <div class="container">
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </body>
+</html>
