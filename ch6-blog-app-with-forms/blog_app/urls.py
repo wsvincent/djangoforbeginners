@@ -6,7 +6,7 @@ urlpatterns = [
         BlogListView.as_view(), name='post-list'),
 
     url(r'^post/(?P<pk>\d+)/$',
-        BlogDetailView.as_view(), name='post-detail'),
+        BlogDetailView.as_view(), name='post_detail'),
 
     url(r'^post/new/$',
         BlogCreateView.as_view(), name='post-new'),
