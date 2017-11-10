@@ -8,7 +8,7 @@ class Post(models.Model):
     text = models.TextField()
 
     def get_absolute_url(self):
-        return reverse('post-list')
+        return reverse('post_list')
 
     def __str__(self):
         return self.title
