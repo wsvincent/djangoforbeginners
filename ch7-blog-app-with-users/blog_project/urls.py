@@ -1,9 +1,9 @@
-from django.conf.urls import include, url
 from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^users/', include('django.contrib.auth.urls')),
-    url(r'^signup/', include('register_app.urls')),
-    url(r'', include('blog_app.urls')),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('', include('blogs.urls')),
 ]
