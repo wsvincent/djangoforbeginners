@@ -5,7 +5,7 @@ from django.urls import reverse
 from .models import Post
 
 
-class BlogTests(TestCase):
+class BlogModelTests(TestCase):
 
     def setUp(self):
         self.user = get_user_model().objects.create(username="wsv")
@@ -37,9 +37,23 @@ class BlogTests(TestCase):
         self.assertContains(response, 'my title')
         self.assertTemplateUsed(response, 'post_detail.html')
 
+
+class NewListTest(TestCase):
+
+    def setUp(self):
+        self.user = get_user_model().objects.create(username="wsv")
+
+    def test_post_create_view(self):
+        self.client.post(
+            '/post/new', data={"author": self.user, "title": "Test title", "body": "My body text"})
+        self.assertEqual(Post.objects.count(), 1)
+
     # def test_post_create_view(self):
     #     response = self.client.post(
-    #         '/post/new/', {'author': self.user, 'title': 'Test title', 'body': 'My body text'})
-    #     self.assertEqual(Post.objects.last().author, 'wsv')
-    #     self.assertEqual(Post.objects.last().title, 'Test title')
-    #     self.assertEqual(Post.objects.last().body, 'My body text')
+    #         '/post/new/', {"author": self.user, "title": "Test title", "body": "My body text"})
+    #     self.assertEqual(response.status_code, 200)
+    #     response = self.client.get('/post/2/')
+    #     post = Post.objects.get(id=2)
+    #     self.assertEqual(Post.objects.last().author, "wsv")
+        #self.assertEqual(Post.objects.last().title, "Test title")
+        #self.assertEqual(Post.objects.last().body, "My body text")
