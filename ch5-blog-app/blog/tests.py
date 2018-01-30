@@ -21,9 +21,9 @@ class BlogTests(TestCase):
 
     def test_post_content(self):
         post = Post.objects.get(id=1)
-        self.assertEquals(f'{post.title}', "my title")
-        self.assertEquals(f'{post.author}', "wsv")
-        self.assertEquals(f'{post.body}', "just a test")
+        self.assertEqual(f'{post.title}', "my title")
+        self.assertEqual(f'{post.author}', "wsv")
+        self.assertEqual(f'{post.body}', "just a test")
 
     def test_post_list_view(self):
         response = self.client.get(reverse('home'))
