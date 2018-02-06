@@ -5,9 +5,7 @@ from .models import Post
 
 class PostModelTest(TestCase):
 
-    @classmethod
-    def setUpTestData(cls):
-        # Set up data for our Test Case
+    def setUp(self):
         Post.objects.create(text='just a test')
 
     def test_text_content(self):
@@ -15,10 +13,10 @@ class PostModelTest(TestCase):
         expected_object_name = f'{post.text}'
         self.assertEqual(expected_object_name, 'just a test')
 
+
 class HomePageViewTest(TestCase):
 
-    @classmethod
-    def setUpTestData(cls):
+    def setUp(self):
         Post.objects.create(text='this is another test')
 
     def test_view_url_exists_at_proper_location(self):
