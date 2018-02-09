@@ -14,7 +14,9 @@ For example, to try out Ch4: Message Board app you'd execute the following comma
 $ cd ch4-message-board-app
 $ pipenv shell
 (mb) $ pipenv install
-(mb) $ ./manage.py runserver
+(mb) $ python manage.py runserver
 ```
+
+Make you type `exit` when done leave your virutal environment.
 
 Any issues? Please submit an issue!
