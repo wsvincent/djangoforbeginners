@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Social Messaging app</h1>
+  <p class="lead">A Twitter clone built with Django.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'posts' %}" role="button">View All Messages</a>
+  </p>
+</div>
+{% endblock %}
