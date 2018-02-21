@@ -8,10 +8,7 @@ name = "pypi"
 [packages]
 
 django = "*"
-gunicorn = "*"
 
 
 [dev-packages]
 
-[requires]
-python_version = "3.6"
