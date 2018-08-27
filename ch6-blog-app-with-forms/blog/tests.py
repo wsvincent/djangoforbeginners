@@ -24,9 +24,6 @@ class BlogTests(TestCase):
         post = Post(title='A sample title')
         self.assertEqual(str(post), post.title)
 
-    def test_get_absolute_url(self):
-        self.assertEquals(self.post.get_absolute_url(), '/post/1/')
-
     def test_post_content(self):
         self.assertEqual(f'{self.post.title}', 'A good title')
         self.assertEqual(f'{self.post.author}', 'testuser')
@@ -64,6 +61,6 @@ class BlogTests(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_post_delete_view(self):
-        response = self.client.get(
+        response = self.client.post(
             reverse('post_delete', args='1'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)

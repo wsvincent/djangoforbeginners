@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home{% endblock title %}
 
 {% block content %}
 <div class="jumbotron">
@@ -10,4 +10,4 @@
     <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}" role="button">View All Articles</a>
   </p>
 </div>
-{% endblock %}
+{% endblock content %}

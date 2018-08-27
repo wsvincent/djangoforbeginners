@@ -5,7 +5,7 @@ from django.urls import reverse
 from .models import Post
 
 
-class BlogModelTests(TestCase):
+class BlogTests(TestCase):
 
     def setUp(self):
         self.user = get_user_model().objects.create_user(
