@@ -8,7 +8,6 @@ django = "*"
 django-crispy-forms = "*"
 
 [dev-packages]
-pylint = "*"
 
 [requires]
 python_version = "3.7"

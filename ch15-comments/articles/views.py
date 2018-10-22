@@ -1,5 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.exceptions import PermissionDenied
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
@@ -19,30 +18,38 @@ class ArticleDetailView(LoginRequiredMixin, DetailView):
     login_url = 'login'
 
 
-class ArticleUpdateView(LoginRequiredMixin, UpdateView):
+class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
     fields = ('title', 'body',)
     template_name = 'article_edit.html'
     login_url = 'login'
 
-    def dispatch(self, request, *args, **kwargs):
+    def test_func(self):
         obj = self.get_object()
-        if obj.author != self.request.user:
-            raise PermissionDenied
-        return super().dispatch(request, *args, **kwargs)
+        return obj.author == self.request.user
+
+    # def dispatch(self, request, *args, **kwargs):
+    #     obj = self.get_object()
+    #     if obj.author != self.request.user:
+    #         raise PermissionDenied
+    #     return super().dispatch(request, *args, **kwargs)
 
 
-class ArticleDeleteView(LoginRequiredMixin, DeleteView):
+class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Article
     template_name = 'article_delete.html'
     success_url = reverse_lazy('article_list')
     login_url = 'login'
 
-    def dispatch(self, request, *args, **kwargs):
+    def test_func(self):
         obj = self.get_object()
-        if obj.author != self.request.user:
-            raise PermissionDenied
-        return super().dispatch(request, *args, **kwargs)
+        return obj.author == self.request.user
+
+    # def dispatch(self, request, *args, **kwargs):
+    #     obj = self.get_object()
+    #     if obj.author != self.request.user:
+    #         raise PermissionDenied
+    #     return super().dispatch(request, *args, **kwargs)
 
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
