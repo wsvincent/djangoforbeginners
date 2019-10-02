@@ -50,6 +50,7 @@ class BlogTests(TestCase):
             'author': self.user,
         })
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertContains(response, 'New title')
         self.assertContains(response, 'New text')
 
