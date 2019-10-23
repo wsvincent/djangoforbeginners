@@ -6,4 +6,4 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "==2.2.0"
+django = "==2.2.6"
