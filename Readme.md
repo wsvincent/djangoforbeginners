@@ -1,6 +1,8 @@
 The official source code for _Django for Beginners_.
 
-![Cover](bookcover.jpg)
+
+
+[![Cover](bookcover.jpg)](https://djangoforbeginners.com/)
 
 Preview the book at [https://djangoforbeginners.com/](https://djangoforbeginners.com/).
 
