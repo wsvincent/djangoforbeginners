@@ -50,9 +50,9 @@ class BlogTests(TestCase):
         response = self.client.post(reverse('post_new'), {
             'title': 'New title',
             'body': 'New text',
-            'author': self.user,
+            'author': self.user.id,
         })
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertContains(response, 'New title')
         self.assertContains(response, 'New text')
 
