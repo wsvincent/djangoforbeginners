@@ -53,8 +53,6 @@ class BlogTests(TestCase):
             'author': self.user.id,
         })
         self.assertEqual(response.status_code, 302)
-        self.assertContains(response, 'New title')
-        self.assertContains(response, 'New text')
 
     def test_post_update_view(self):
         response = self.client.post(reverse('post_edit', args='1'), {
