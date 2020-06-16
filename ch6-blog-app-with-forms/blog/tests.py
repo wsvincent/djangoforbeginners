@@ -24,7 +24,7 @@ class BlogTests(TestCase):
         post = Post(title='A sample title')
         self.assertEqual(str(post), post.title)
 
-    def test_get_absolute_url(self): 
+    def test_get_absolute_url(self):
         self.assertEqual(self.post.get_absolute_url(), '/post/1/')
 
     def test_post_content(self):
@@ -50,11 +50,11 @@ class BlogTests(TestCase):
         response = self.client.post(reverse('post_new'), {
             'title': 'New title',
             'body': 'New text',
-            'author': self.user,
+            'author': self.user.id,
         })
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'New title')
-        self.assertContains(response, 'New text')
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Post.objects.last().title, 'New title')
+        self.assertEqual(Post.objects.last().body, 'New text')
 
     def test_post_update_view(self):
         response = self.client.post(reverse('post_edit', args='1'), {

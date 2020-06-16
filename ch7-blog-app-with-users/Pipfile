@@ -6,9 +6,9 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "==3.0"
+django = "==3.0.7"
 gunicorn = "==19.9.0"
-whitenoise = "==4.1.4"
+whitenoise = "==5.1.0"
 
 [requires]
 python_version = "3.7"
