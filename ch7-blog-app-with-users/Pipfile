@@ -7,8 +7,6 @@ verify_ssl = true
 
 [packages]
 django = "==3.0.7"
-gunicorn = "==19.9.0"
-whitenoise = "==5.1.0"
 
 [requires]
 python_version = "3.7"
