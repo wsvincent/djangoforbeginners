@@ -7,8 +7,10 @@ verify_ssl = true
 
 [packages]
 django = "==3.0.7"
-gunicorn = "==19.9.0"
+dj-database-url = "==0.5.0"
 whitenoise = "==5.1.0"
+gunicorn = "==19.9.0"
+environs = {extras = ["django"],version = "==8.0.0"}
 
 [requires]
 python_version = "3.7"

@@ -1,4 +1,4 @@
-.DS_Store
-__pycache__/
 .env
+__pycache__/
 db.sqlite3
+.DS_Store # Mac only
