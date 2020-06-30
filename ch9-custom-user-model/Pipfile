@@ -7,3 +7,4 @@ verify_ssl = true
 
 [packages]
 django = "~=3.0.0"
+environs = {extras = ["django"],version = "==8.0.0"}
