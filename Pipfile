@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 django = "~=3.0.0"
 django-crispy-forms = "==1.8.1"
+environs = {extras = ["django"],version = "==8.0.0"}
 
 [requires]
 python_version = "3.7"
