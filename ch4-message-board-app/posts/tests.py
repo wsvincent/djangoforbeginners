@@ -1,7 +1,7 @@
 from django.test import TestCase
-from django.urls import reverse
-
+from django.urls import reverse # new
 from .models import Post
+
 
 class PostModelTest(TestCase):
 
@@ -13,7 +13,7 @@ class PostModelTest(TestCase):
         expected_object_name = f'{post.text}'
         self.assertEqual(expected_object_name, 'just a test')
 
-class HomePageViewTest(TestCase):
+class HomePageViewTest(TestCase): # new
 
     def setUp(self):
         Post.objects.create(text='this is another test')

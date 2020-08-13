@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Articles{% endblock title %}
+
+{% block content %}
+  {% for article in object_list %}
+    <div class="card">
+      <div class="card-header">
+        <span class="font-weight-bold">{{ article.title }}</span> &middot;
+        <span class="text-muted">by {{ article.author }} | {{ article.date }}</span>
+      </div>
+      <div class="card-body">
+        {{ article.body }}
+      </div>
+      <div class="card-footer text-center text-muted">
+        <a href="{% url 'article_edit' article.pk %}">Edit</a> |
+        <a href="{% url 'article_delete' article.pk %}">Delete</a>
+      </div>
+    </div>
+    <br />
+  {% endfor %}
+{% endblock content %}
