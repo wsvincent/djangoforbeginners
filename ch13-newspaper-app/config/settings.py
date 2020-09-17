@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'crispy_forms', # new
 
     # Local
-    'accounts, # new
+    'accounts', # new
     'pages', # new
     'articles', # new
 ]
