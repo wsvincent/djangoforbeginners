@@ -13,8 +13,8 @@
         {{ article.body }}
       </div>
       <div class="card-footer text-center text-muted">
-        <a href="{% url 'article_edit' article.pk %}">Edit</a> |
-        <a href="{% url 'article_delete' article.pk %}">Delete</a>
+        <a href="{% url 'article_edit' object.id %}">Edit</a> |
+        <a href="{% url 'article_delete' object.id %}">Delete</a>
       </div>
     </div>
     <br />
