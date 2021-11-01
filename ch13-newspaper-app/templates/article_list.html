@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block title %}Articles{% endblock title %}
 
@@ -7,7 +7,8 @@
     <div class="card">
       <div class="card-header">
         <span class="font-weight-bold">{{ article.title }}</span> &middot;
-        <span class="text-muted">by {{ article.author }} | {{ article.date }}</span>
+        <span class="text-muted">by {{ article.author }} |
+        {{ article.date }}</span>
       </div>
       <div class="card-body">
         {{ article.body }}

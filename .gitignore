@@ -3,3 +3,4 @@ __pycache
 .DS_Store
 .git
 .vscode
+.venv

@@ -1,13 +1,12 @@
-from django.views.generic import ListView, DetailView # new
-
+from django.views.generic import ListView, DetailView  # new
 from .models import Post
 
 
 class BlogListView(ListView):
     model = Post
-    template_name = 'home.html'
+    template_name = "home.html"
 
 
-class BlogDetailView(DetailView): # new
+class BlogDetailView(DetailView):  # new
     model = Post
-    template_name = 'post_detail.html'
+    template_name = "post_detail.html"

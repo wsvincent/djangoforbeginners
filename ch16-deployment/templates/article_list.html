@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block title %}Articles{% endblock title %}
 
@@ -7,23 +7,24 @@
     <div class="card">
       <div class="card-header">
         <span class="font-weight-bold">{{ article.title }}</span> &middot;
-        <span class="text-muted">by {{ article.author }} | {{ article.date }}</span>
+        <span class="text-muted">by {{ article.author }} |
+        {{ article.date }}</span>
       </div>
       <div class="card-body">
-        <!-- Changes start here! -->
         <p>{{ article.body }}</p>
         <a href="{% url 'article_edit' article.pk %}">Edit</a> |
         <a href="{% url 'article_delete' article.pk %}">Delete</a>
       </div>
       <div class="card-footer">
-        {% for comment in article.comments.all %}
+        {% for comment in article.comment_set.all %}
           <p>
-            <span class="font-weight-bold">{{ comment.author }} &middot;</span>
+            <span class="font-weight-bold">
+              {{ comment.author }} &middot;
+            </span>
             {{ comment }}
           </p>
         {% endfor %}
       </div>
-      <!-- Changes end here! -->
     </div>
     <br />
   {% endfor %}

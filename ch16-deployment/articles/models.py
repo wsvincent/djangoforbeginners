@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 
@@ -9,7 +8,7 @@ class Article(models.Model):
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
-        get_user_model(),
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
 
@@ -17,18 +16,14 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('article_detail', args=[str(self.id)])
+        return reverse("article_detail", args=[str(self.id)])
 
 
-class Comment(models.Model): # new
-    article = models.ForeignKey(
-        Article,
-        on_delete=models.CASCADE,
-        related_name='comments', # new
-    )
+class Comment(models.Model):  # new
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
     comment = models.CharField(max_length=140)
     author = models.ForeignKey(
-        get_user_model(),
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
 
@@ -36,4 +31,4 @@ class Comment(models.Model): # new
         return self.comment
 
     def get_absolute_url(self):
-        return reverse('article_list')
+        return reverse("article_list")
