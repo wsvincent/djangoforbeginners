@@ -4,7 +4,8 @@ from .models import Post
 
 
 class PostModelTest(TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         Post.objects.create(text="just a test")
 
     def test_text_content(self):
@@ -14,7 +15,8 @@ class PostModelTest(TestCase):
 
 
 class HomePageViewTest(TestCase):  # new
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         Post.objects.create(text="this is another test")
 
     def test_view_url_exists_at_proper_location(self):
