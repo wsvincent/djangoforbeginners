@@ -3,31 +3,22 @@ from django.urls import reverse  # new
 from .models import Post
 
 
-class PostModelTest(TestCase):
+class PostsTests(TestCase):
     @classmethod
     def setUpTestData(cls):
-        Post.objects.create(text="just a test")
+        cls.post = Post.objects.create(text="This is a test!")
 
-    def test_text_content(self):
-        post = Post.objects.get(id=1)
-        expected_object_name = f"{post.text}"
-        self.assertEqual(expected_object_name, "just a test")
+    def test_post_content(self):
+        self.assertEqual(self.post.text, "This is a test!")
 
+    def test_homepage_status_code(self):  # new
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
 
-class HomePageViewTest(TestCase):  # new
-    @classmethod
-    def setUpTestData(cls):
-        Post.objects.create(text="this is another test")
+    def test_homepage_uses_correct_template(self):  # new
+        response = self.client.get(reverse("home"))
+        self.assertTemplateUsed(response, "home.html")
 
-    def test_view_url_exists_at_proper_location(self):
-        resp = self.client.get("/")
-        self.assertEqual(resp.status_code, 200)
-
-    def test_view_url_by_name(self):
-        resp = self.client.get(reverse("home"))
-        self.assertEqual(resp.status_code, 200)
-
-    def test_view_uses_correct_template(self):
-        resp = self.client.get(reverse("home"))
-        self.assertEqual(resp.status_code, 200)
-        self.assertTemplateUsed(resp, "home.html")
+    def test_homepage_content(self):  # new
+        response = self.client.get(reverse("home"))
+        self.assertContains(response, "This is a test!")
