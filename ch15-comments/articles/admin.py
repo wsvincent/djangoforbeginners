@@ -6,11 +6,11 @@ class CommentInline(admin.TabularInline):  # new
     model = Comment
 
 
-class ArticleAdmin(admin.ModelAdmin):  # new
+class ArticleAdmin(admin.ModelAdmin):
     inlines = [
         CommentInline,
     ]
 
 
-admin.site.register(Article, ArticleAdmin)  # new
+admin.site.register(Article, ArticleAdmin)
 admin.site.register(Comment)

@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin  
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
+
 from .models import Article
 
 
@@ -41,8 +42,8 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):  #
 class ArticleCreateView(LoginRequiredMixin, CreateView):  # new
     model = Article
     template_name = "article_new.html"
-    fields = ("title", "body")
+    fields = ("title", "body")  # new
 
-    def form_valid(self, form):
+    def form_valid(self, form):  # new
         form.instance.author = self.request.user
         return super().form_valid(form)

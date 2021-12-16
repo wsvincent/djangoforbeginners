@@ -5,8 +5,7 @@
 
 {% block content %}
 <h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
+<form method="post">{% csrf_token %}
   {{ form|crispy }}
   <button class="btn btn-success ml-2" type="submit">Log In</button>
 </form>

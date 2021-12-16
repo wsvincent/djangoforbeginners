@@ -18,29 +18,36 @@ class BlogTests(TestCase):
             author=cls.user,
         )
 
-    def test_get_absolute_url(self):  # new
+    def test_post_model(self):
+        self.assertEqual(self.post.title, "A good title")
+        self.assertEqual(self.post.body, "Nice body content")
+        self.assertEqual(self.post.author.username, "testuser")
+        self.assertEqual(str(self.post), "A good title")
         self.assertEqual(self.post.get_absolute_url(), "/post/1/")
 
-    def test_post_content(self):
-        self.assertEqual(f"{self.post.title}", "A good title")
-        self.assertEqual(f"{self.post.author}", "testuser")
-        self.assertEqual(f"{self.post.body}", "Nice body content")
+    def test_url_exists_at_correct_location_listview(self):
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
 
-    def test_post_list_view(self):
+    def test_url_exists_at_correct_location_detailview(self):
+        response = self.client.get("/post/1/")
+        self.assertEqual(response.status_code, 200)
+
+    def test_post_listview(self):
         response = self.client.get(reverse("home"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Nice body content")
         self.assertTemplateUsed(response, "home.html")
 
-    def test_post_detail_view(self):
-        response = self.client.get("/post/1/")
+    def test_post_detailview(self):
+        response = self.client.get(reverse("post_detail", kwargs={"pk": self.post.pk}))
         no_response = self.client.get("/post/100000/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
         self.assertContains(response, "A good title")
         self.assertTemplateUsed(response, "post_detail.html")
 
-    def test_post_create_view(self):  # new
+    def test_post_createview(self):  # new
         response = self.client.post(
             reverse("post_new"),
             {
@@ -53,7 +60,7 @@ class BlogTests(TestCase):
         self.assertEqual(Post.objects.last().title, "New title")
         self.assertEqual(Post.objects.last().body, "New text")
 
-    def test_post_update_view(self):  # new
+    def test_post_updateview(self):  # new
         response = self.client.post(
             reverse("post_edit", args="1"),
             {
@@ -62,7 +69,9 @@ class BlogTests(TestCase):
             },
         )
         self.assertEqual(response.status_code, 302)
+        self.assertEqual(Post.objects.last().title, "Updated title")
+        self.assertEqual(Post.objects.last().body, "Updated text")
 
-    def test_post_delete_view(self):  # new
+    def test_post_deleteview(self):  # new
         response = self.client.post(reverse("post_delete", args="1"))
         self.assertEqual(response.status_code, 302)
