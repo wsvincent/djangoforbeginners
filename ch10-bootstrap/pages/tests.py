@@ -4,12 +4,6 @@ from django.urls import reverse
 
 
 class HomePageTests(SimpleTestCase):
-    @classmethod
-    def setUpTestData(cls):
-        cls.user = get_user_model().objects.create_user(
-            username="testuser", email="test@email.com", password="secret"
-        )
-
     def test_home_page_status_code(self):
         response = self.client.get("/")
         self.assertEqual(response.status_code, 200)
