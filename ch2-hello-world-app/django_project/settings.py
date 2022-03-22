@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "pages.apps.PagesConfig",  # new
+    # "pages.apps.PagesConfig",  # new
+    'pages'  # directly pass the app name
 ]
 
 MIDDLEWARE = [
