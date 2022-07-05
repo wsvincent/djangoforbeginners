@@ -2,7 +2,7 @@ asgiref==3.4.1
 crispy-bootstrap5==0.6
 dj-database-url==0.5.0
 dj-email-url==1.0.2
-Django==4.0
+Django==4.0.6
 django-cache-url==3.2.3
 django-crispy-forms==1.13.0
 environs==9.3.5
