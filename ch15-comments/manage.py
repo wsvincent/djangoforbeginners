@@ -2,6 +2,8 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+#زن-زندگی-آزادی
+
 
 
 def main():
