@@ -26,7 +26,7 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):  #
 
     def test_func(self):  # new
         obj = self.get_object()
-        return obj.author == self.request.user
+        return obj.author == self.request.user or self.request.user.is_superuser #Allow superuser to update article.
 
 
 class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):  # new
@@ -36,7 +36,7 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):  #
 
     def test_func(self):  # new
         obj = self.get_object()
-        return obj.author == self.request.user
+        return obj.author == self.request.user or self.request.user.is_superuser #Allow superuser to delete article.
 
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):  # new
