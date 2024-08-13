@@ -4,7 +4,7 @@ click==8.1.7
 crispy-bootstrap5==2024.2
 dj-database-url==2.2.0
 dj-email-url==1.0.6
-Django==5.0.6
+Django==5.0.8
 django-cache-url==3.4.5
 django-crispy-forms==2.2
 environs==11.0.0
