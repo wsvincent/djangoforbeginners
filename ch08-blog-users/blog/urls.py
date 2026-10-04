@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import (
-    BlogListView,
-    BlogDetailView,
+
+from .views import (  # new
     BlogCreateView,
+    BlogDeleteView,
+    BlogDetailView,
+    BlogListView,
     BlogUpdateView,
-    BlogDeleteView,  # new
 )
 
 urlpatterns = [

@@ -1,11 +1,11 @@
 from django.urls import path
 
-from .views import (
+from .views import (  # new
     ArticleListView,
     ArticleDetailView,
     ArticleUpdateView,
     ArticleDeleteView,
-    ArticleCreateView,  # new
+    ArticleCreateView,
 )
 
 urlpatterns = [

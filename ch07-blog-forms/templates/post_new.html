@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>New post</h1>
-<form action="" method="post">{% csrf_token %}
+<form method="post">{% csrf_token %}
   {{ form }}
   <input type="submit" value="Save">
 </form>

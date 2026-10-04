@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
+{% block title %}{{ article.title }}{% endblock title %}
+
 {% block content %}
 <div class="article-entry">
-  <h2>{{ object.title }}</h2>
-  <p>by {{ object.author }} | {{ object.date }}</p>
-  <p>{{ object.body }}</p>
+  <h2>{{ article.title }}</h2>
+  <p>by {{ article.author }} | {{ article.date }}</p>
+  <p>{{ article.body }}</p>
 </div>
 <div>
   <p><a href="{% url 'article_edit' article.pk %}">Edit</a>

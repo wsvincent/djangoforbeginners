@@ -4,16 +4,8 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<!-- new code here! -->
-Hi {{ user.username }}! You are {{ user.age }} years old.
-<!-- end of new code -->
-<form action="{% url 'logout' %}" method="post">
-  {% csrf_token %}
-  <button type="submit">Log Out</button>
-</form>
+<p>Hi {{ user.username }}! You are {{ user.age }} years old.</p>
 {% else %}
 <p>You are not logged in</p>
-<a href="{% url 'login' %}">Log In</a> |
-<a href="{% url 'signup' %}">Sign Up</a>
 {% endif %}
 {% endblock content %}

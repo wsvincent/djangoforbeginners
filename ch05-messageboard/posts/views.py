@@ -1,4 +1,5 @@
 # from django.shortcuts import render
+
 # from .models import Post
 
 
@@ -7,6 +8,7 @@
 #     return render(request, "post_list.html", {"posts": posts})
 
 from django.views.generic import ListView  # new
+
 from .models import Post
 
 

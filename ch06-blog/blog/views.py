@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404  # new
+from django.shortcuts import get_object_or_404, render  # new
+
 from .models import Post
 
 

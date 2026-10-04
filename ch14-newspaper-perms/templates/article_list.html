@@ -7,6 +7,7 @@
 <div class="card">
   <div class="card-header">
     <span class="fw-bold">
+      <!-- add link here! -->
       <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
     </span> &middot;
     <span class="text-muted">by {{ article.author }} |
@@ -16,11 +17,11 @@
     {{ article.body }}
   </div>
   <div class="card-footer text-center text-muted">
-    <!-- new code here -->
-    {% if article.author.pk == request.user.pk %} 
+    <!-- start new code here -->
+    {% if article.author.pk == request.user.pk %}
     <a href="{% url 'article_edit' article.pk %}">Edit</a>
     <a href="{% url 'article_delete' article.pk %}">Delete</a>
-    {% endif %} <!-- new code here -->
+    {% endif %} <!-- end new code here -->
   </div>
 </div>
 <br />

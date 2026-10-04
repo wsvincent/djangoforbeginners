@@ -1,0 +1,17 @@
+asgiref==3.12.1
+brotli==1.2.0
+crispy-bootstrap5==2026.9
+dj-database-url==3.1.2
+dj-email-url==1.0.6
+Django==6.1.1
+django-cache-url==3.4.6
+django-crispy-forms==2.7
+django-debug-toolbar==8.0.0
+environs==15.2.0
+gunicorn==26.2.0
+marshmallow==4.3.1
+psycopg==3.3.6
+psycopg-binary==3.3.6
+python-dotenv==1.2.3
+sqlparse==0.6.0
+whitenoise==6.12.0
