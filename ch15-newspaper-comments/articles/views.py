@@ -1,9 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy, reverse  # new
 from django.views import View
-from django.views.generic import ListView, DetailView, FormView  # new
+from django.views.generic import DetailView, FormView, ListView  # new
 from django.views.generic.detail import SingleObjectMixin  # new
-from django.views.generic.edit import UpdateView, DeleteView, CreateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from .forms import CommentForm
 from .models import Article

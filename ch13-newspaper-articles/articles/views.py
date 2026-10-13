@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy  # new
-from django.views.generic import ListView, DetailView  # new
-from django.views.generic.edit import UpdateView, DeleteView, CreateView  # new
+from django.views.generic import DetailView, ListView  # new
+from django.views.generic.edit import CreateView, DeleteView, UpdateView  # new
 
 from .models import Article
 

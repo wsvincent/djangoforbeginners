@@ -10,7 +10,7 @@ class CommentInline(admin.TabularInline):  # new
 
 class ArticleAdmin(admin.ModelAdmin):
     inlines = [
-        CommentInline,  # new
+        CommentInline,
     ]
     list_display = [
         "title",
